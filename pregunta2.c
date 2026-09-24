@@ -60,42 +60,39 @@ int main() {
         }
     }
 
+    char *typestr;
     switch (type) {
         case INVALID:
-            printf("Lados      : %d %d %d\n", a, b, c);
-            printf("Tipo       : Lados invalidos\n");
-            printf("Rectangulo : -\n");
-            printf("Area       : -\n");
+            typestr = "Lados invalidos";
+            isRect = 0;
+            area = 0;
             break;
 
         case NOT_A_TRIANGLE:
-            printf("Lados      : %d %d %d\n", a, b, c);
-            printf("Tipo       : No forman un triangulo\n");
-            printf("Rectangulo : -\n");
-            printf("Area       : -\n");
+            typestr = "No forman un triangulo";
+            isRect = 0;
+            area = 0;
             break;
 
         case EQUILATERAL:
-            printf("Lados      : %d %d %d\n", a, b, c);
-            printf("Tipo       : Equilatero\n");
-            printf("Rectangulo : %s\n", isRect ? "Si" : "No");
-            printf("Area       : Solo se calcula el area de triangulos escalenos\n");
+            typestr = "Equilatero";
+            area = 0;    
             break;
 
         case ISOSCELES:
-            printf("Lados      : %d %d %d\n", a, b, c);
-            printf("Tipo       : Isosceles\n");
-            printf("Rectangulo : %s\n", isRect ? "Si" : "No");
-            printf("Area       : Solo se calcula el area de triangulos escalenos\n");
+            typestr = "Isosceles";
+            area = 0;
             break;
 
         case SCALENE:
-            printf("Lados      : %d, %d, %d\n", a, b, c);
-            printf("Tipo       : Escaleno\n");
-            printf("Rectangulo : %s\n", isRect ? "Si" : "No");
-            printf("Area       : %.3f\n", area);
+            typestr = "Escaleno";
             break;
     }
+
+    printf("Lados      : %d %d %d\n", a, b, c);
+    printf("Tipo       : %s\n", typestr);
+    printf("Rectangulo : %s\n", isRect ? "Si" : "No");
+    printf("Area       : %.3f\n", area);
 
     return 0;
 }
